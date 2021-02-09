@@ -20,7 +20,6 @@
 	pdftitle={\CTITLE},
 	pdfauthor={\CAUTHOR}
 }
-\setlist[itemize,1]{label=\faAngleRight}
 
 \addbibresource	{../literatur.bib}
 \graphicspath	{{../assets/img/}}
@@ -32,7 +31,13 @@
 
 \begin{document}
 \pagenumbering	{gobble}
+
 \input			{build/components/deckblatt.tex}
+
+\if\CARBEIT B
+	\input			{../bachelor.tex}
+\fi
+
 
 % INHALTSVERZEICHNIS
 \pagenumbering{Roman} \setcounter{page}{1}
@@ -86,5 +91,9 @@
 \section*{Ehrenwörtliche Erklärung}
 \addcontentsline{toc}{section}{Ehrenwörtliche Erklärung}
 \input{build/components/ehrenwort.tex}
+
+\if\CARBEIT B
+	\input{components/freigabe.tex}
+\fi
 
 \end{document}
