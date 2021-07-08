@@ -13,10 +13,10 @@ jobs:
 
     steps:
     # Step 1: run a standard checkout action, provided by github
-    - name: Checkout develop
+    - name: Checkout main
       uses: actions/checkout@v2
       with:
-        ref: master
+        ref: main
         # submodules: 'recursive'     ### may be needed in your situation
 
     # Step 2: run this sync action - specify the upstream repo, upstream branch to sync with, and target sync branch
@@ -25,8 +25,8 @@ jobs:
       uses: aormsby/Fork-Sync-With-Upstream-action@v2.1
       with:
         upstream_repository: rvnovae/dhge-latex
-        upstream_branch: master
-        target_branch: master
+        upstream_branch: main
+        target_branch: main
         git_pull_args: --allow-unrelated-histories -s recursive -Xtheirs                    # optional arg use, defaults to simple 'pull'
 
     # Step 3: Display a message if 'sync' step had new commits (simple test)
